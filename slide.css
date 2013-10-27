@@ -1,0 +1,40 @@
+.title
+{
+	height:100px;
+	background-color:transparent;
+	font-size:60px;
+	color:#FFFFFF;
+	float:top;
+		font-family:sans-serif;
+		text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #888, 0 0 0.2em #333, 0 0 0.2em #000
+}
+.bottom
+{
+
+}
+.contents
+{
+background-color:rgba(255, 255, 255, 0.3);
+-moz-border-radius: 10px;
+border-radius: 10px;
+border:1px solid #FFFFFF;
+	color:#FFFFFF;
+}
+.text
+{
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	font-family:sans-serif;
+	font-size:25px;
+	text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #777, 0 0 0.2em #000
+}
+body
+{
+background-color:#000000;
+-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
