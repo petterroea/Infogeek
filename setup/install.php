@@ -81,6 +81,7 @@ $config_php="<?php //Infogeek generated config sheet\r\n" .
 '$tbl_slides="' . $tbl_slides . '";' . "\r\n" .
 '$tbl_users="' . $tbl_users . '";' . "\r\n" .
 '$tbl_addons="' . $tbl_addons . '";' . "\r\n" .
+'$slide_time=15;' . "\r\n" .
 '$addon_folder="addons";' . "\r\n" .
 '$party_name="Party name";' . "\r\n" .' ?>';
 $handle = fopen("../config.php", 'w');

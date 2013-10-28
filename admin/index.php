@@ -69,7 +69,7 @@
 			{
 				doHeader();
 				includePage();
-				echo '<div id="bottom"><center><i>Infogeek 1.0 - released under the MIT licence. Please see LICENCE.txt for more details...</i><br /><i>Thanks and greetings to its contributors.</i></center></div>';
+				echo '<div id="bottom"><center><i>Infogeek 1.0 - released under the MIT licence. Please see LICENCE.txt for more details, and third party lisences.<br />Uses elRTE for WYSIWYG text editing.</i><br /><i>Thanks and greetings to its contributors.</i></center></div>';
 			}
 		?>
 	</body>

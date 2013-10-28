@@ -1,0 +1,8 @@
+TODO FOR 1.1 RELEASE:
+1. Working user system
+2. Working plugin system
+3. Working conf page.
+
+*Currently, only admin accounts are supported. For other accounts, mabe add some system with another table where slides are stored until they are accepted?
+	Fix: Create seperate tables where revisions are stored. Only one can stay there at a time, and if the slide is deleted, so is the revision
+	Target: 1.2
