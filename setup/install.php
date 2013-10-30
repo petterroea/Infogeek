@@ -115,7 +115,7 @@ fwrite($handle, $cssfile);
 fclose($handle);
 
 
-echo '<font color="009900">Done! Delete the folder "setup" and go to the root of this webpage.<br /></font>';
+echo '<b><font color="009900">Done! Delete the folder "setup" and go to the root of this webpage.<br /></font></b>';
 
 
 echo "</i>";
