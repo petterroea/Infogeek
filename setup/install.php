@@ -95,7 +95,6 @@
 	$result = mysql_query($query);
 	if($result==false) { echo '<font color="990000">Error adding db entry for dummy slide<br /></font>'; mysql_error();}
 
-
 	echo '<font color="009900">Generating admin<br /></font>';
 
 	$query = "INSERT INTO `".$tbl_prefix.$tbl_users."` (`id`, `name`, `password`, `username`, `rank`) VALUES (NULL, '" . $admin_name . "', '" . md5($admin_password) . "', 'admin', '1');";
