@@ -29,9 +29,9 @@
 		?>
 		<form name="input" action="install.php" method="post">
 			<h2>Licenses</h2>
-			You must accept these licenses to install:
-			<i>Infogeek</i>
-			<textarea rows="10">
+			You must accept these licenses to install:<br />
+			<i>Infogeek</i><br />
+			<textarea rows="10" cols="80">
 The MIT License (MIT)
 
 Copyright (c) 2013 Liam Svanåsbakken Crouch
@@ -52,9 +52,9 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-			</textarea>
-			<i>elRTE</i>
-			<textarea rows="10">
+			</textarea><br />
+			<i>elRTE</i><br />
+			<textarea rows="10" cols="80">
 				Copyright (c) 2009-2011, Studio 42 Ltd.
 All rights reserved.
 
@@ -80,7 +80,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-			</textarea>
+			</textarea><br />
 			<input type="checkbox" name="license_accepted" value="yes"> <b>I HAVE READ AND ACCEPT THE LICENSE AGREEMENTS</b>
 			<h2>MySql information</h2>
 			This information is used to determine where to store information and slides.<br />

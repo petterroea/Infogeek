@@ -59,7 +59,7 @@
 				'If the problem perisists, contact admin.</font>';
 			}
 		}
-		else if($_POST["id"]=="new")
+		else if(isset($_POST["id"])&&$_POST["id"]=="new")
 		{
 			if($_SESSION["rank"]=="1"||$_SESSION["rank"]=="2")
 			{

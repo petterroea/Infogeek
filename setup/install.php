@@ -65,7 +65,7 @@ $result = mysql_query($query);
 if($result==false) { echo '<font color="990000">Error adding user table!<br /></font>'; mysql_error();} else { echo '<font color="009900">Added user table<br /></font>'; }
 
 //Addons
-$query = "CREATE TABLE `".$tbl_prefix.$tbl_addons."` ( `id` int(10) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL default '',`url` varchar(100) NOT NULL default '', PRIMARY KEY (`id`))";
+$query = "CREATE TABLE `".$tbl_prefix.$tbl_addons."` ( `id` int(10) NOT NULL AUTO_INCREMENT,`name` varchar(100) NOT NULL default '',`css_name` varchar(100) NOT NULL default '',`url` varchar(100) NOT NULL default '', PRIMARY KEY (`id`))";
 echo "<i>" . $query . "</i></br />";
 $result = mysql_query($query);
 if($result==false) { echo '<font color="990000">Error adding addon table!<br /></font>' . $result; mysql_error();} else { echo '<font color="009900">Added addon table<br /></font>'; }
@@ -99,6 +99,13 @@ if($result==false) { echo '<font color="990000">Error adding db entry for dummy 
 echo '<font color="009900">Generating admin<br /></font>';
 
 $query = "INSERT INTO `".$tbl_prefix.$tbl_users."` (`id`, `name`, `password`, `username`, `rank`) VALUES (NULL, '" . $admin_name . "', '" . md5($admin_password) . "', 'admin', '1');";
+echo $query . "<br />";
+$result = mysql_query($query);
+if($result==false) { echo '<font color="990000">Error adding admin user<br /></font>'; mysql_error();}
+
+echo '<font color="009900">Generating slide plugin<br /></font>';
+
+$query = "INSERT INTO `".$tbl_prefix.$tbl_addons."` (`id`, `name`, `css_name`, `url`) VALUES (NULL, 'Slide provider', 'slides', 'slides.php');";
 echo $query . "<br />";
 $result = mysql_query($query);
 if($result==false) { echo '<font color="990000">Error adding admin user<br /></font>'; mysql_error();}
