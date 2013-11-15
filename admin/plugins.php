@@ -22,6 +22,7 @@
 		{
 			echo '<font color="FF0000">ERROR deleting addon!</font>';
 		}
+	}
 }
 ?>
 <div id="content-title">
