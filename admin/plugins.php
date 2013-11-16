@@ -9,7 +9,21 @@
 	$connection = mysql_connect($db_host,$db_user,$db_pass) or die("COULD NOT CONNECT TO SQL");
 	mysql_select_db($db, $connection) or die("COULD NOT SELLECT DATABASE");
 
-	if(isset($_POST["delete"]))
+	if(isset($_POST["id"]))
+	{
+		$id = $_POST["id"];
+		if($_POST["id"]=="new")
+		{
+			mysql_query("INSERT INTO `".$tbl_prefix.$tbl_slides."` (`id`, `name`, `css_name`, `url`) VALUES (NULL, '" . mysql_real_escape_string(stripslashes($_POST["pluginname"])) . "', '" . mysql_real_escape_string(stripslashes($_POST["cssname"])) . "', '" . mysql_real_escape_string(stripslashes($_POST["url"])) . "')");
+		}
+		else //Edit
+		{
+			mysql_query("UPDATE `".$tbl_prefix.$tbl_slides."` SET `name`='" . mysql_real_escape_string(stripslashes($_POST["pluginname"])) . "' WHERE `id`='" . $id . "';");
+			mysql_query("UPDATE `".$tbl_prefix.$tbl_slides."` SET `css_name`='" . mysql_real_escape_string(stripslashes($_POST["cssname"])) . "' WHERE `id`='" . $id . "';");
+			mysql_query("UPDATE `".$tbl_prefix.$tbl_slides."` SET `url`='" . mysql_real_escape_string(stripslashes($_POST["url"])) . "' WHERE `id`='" . $id . "';");
+		}
+	}
+	else if(isset($_GET["delete"]))
 	{
 		$id = $_GET["delete"];
 		$sql = "DELETE FROM `" . $tbl_prefix . $tbl_addons . "` WHERE `id` LIKE '" . mysql_real_escape_string(stripslashes($id)) . "';";
@@ -22,6 +36,20 @@
 		{
 			echo '<font color="FF0000">ERROR deleting addon!</font>';
 		}
+	}
+	else if(isset($_GET["edit"]))
+	{
+		$id = $_GET["edit"];
+		$sql = "SELECT * FROM `" . $tbl_prefix.$tbl_addons . "` WHERE `id`='" . mysql_real_escape_string(stripslashes($id)) . "';";
+		$result = mysql_query($sql);
+
+		echo "<h1>Edit plugin id " . $id . "</h1>";
+		echo '<form name="input" action="index.php?page=plugins" method="post">';
+			echo 'Plugin name:<input type="text" name="pluginname" value="' . mysql_result($result, 0, "name") . '"><br />';
+			echo 'Css name(Used for styling):<input type="text" name="cssname" value="' . mysql_result($result, 0, "css_name") . '"><br />';
+			echo 'Filename of plugin:<input type="text" name="url" value="' . mysql_result($result, 0, "url") . '"><br />';
+			echo '<input type="hidden" name="id" value="' . $id . '">';
+		echo "</form>";
 	}
 }
 ?>
@@ -45,3 +73,11 @@
 	}
 ?>
 </table>
+
+<h1>New slide</h1>
+<form name="input" action="index.php?page=plugins" method="post">
+	Plugin name:<input type="text" name="pluginname" value="' . mysql_result($result, 0, "name") . '"><br />
+	Css name(Used for styling):<input type="text" name="cssname" value="' . mysql_result($result, 0, "css_name") . '"><br />
+	Filename of plugin:<input type="text" name="url" value="' . mysql_result($result, 0, "url") . '"><br />
+	<input type="hidden" name="id" value="new">
+</form>
