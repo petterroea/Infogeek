@@ -14,13 +14,15 @@
 		$id = $_POST["id"];
 		if($_POST["id"]=="new")
 		{
-			mysql_query("INSERT INTO `".$tbl_prefix.$tbl_slides."` (`id`, `name`, `css_name`, `url`) VALUES (NULL, '" . mysql_real_escape_string(stripslashes($_POST["pluginname"])) . "', '" . mysql_real_escape_string(stripslashes($_POST["cssname"])) . "', '" . mysql_real_escape_string(stripslashes($_POST["url"])) . "')");
+			mysql_query("INSERT INTO `".$tbl_prefix.$tbl_addons."` (`id`, `name`, `css_name`, `url`) VALUES (NULL, '" . mysql_real_escape_string(stripslashes($_POST["pluginname"])) . "', '" . mysql_real_escape_string(stripslashes($_POST["cssname"])) . "', '" . mysql_real_escape_string(stripslashes($_POST["url"])) . "')");
+			echo '<font color="00FF00">Sucessfully added plugin!</font>';
 		}
 		else //Edit
 		{
-			mysql_query("UPDATE `".$tbl_prefix.$tbl_slides."` SET `name`='" . mysql_real_escape_string(stripslashes($_POST["pluginname"])) . "' WHERE `id`='" . $id . "';");
-			mysql_query("UPDATE `".$tbl_prefix.$tbl_slides."` SET `css_name`='" . mysql_real_escape_string(stripslashes($_POST["cssname"])) . "' WHERE `id`='" . $id . "';");
-			mysql_query("UPDATE `".$tbl_prefix.$tbl_slides."` SET `url`='" . mysql_real_escape_string(stripslashes($_POST["url"])) . "' WHERE `id`='" . $id . "';");
+			mysql_query("UPDATE `".$tbl_prefix.$tbl_addons."` SET `name`='" . mysql_real_escape_string(stripslashes($_POST["pluginname"])) . "' WHERE `id`='" . $id . "';");
+			mysql_query("UPDATE `".$tbl_prefix.$tbl_addons."` SET `css_name`='" . mysql_real_escape_string(stripslashes($_POST["cssname"])) . "' WHERE `id`='" . $id . "';");
+			mysql_query("UPDATE `".$tbl_prefix.$tbl_addons."` SET `url`='" . mysql_real_escape_string(stripslashes($_POST["url"])) . "' WHERE `id`='" . $id . "';");
+			echo '<font color="00FF00">Sucessfully edited plugin!</font>';
 		}
 	}
 	else if(isset($_GET["delete"]))
@@ -49,9 +51,9 @@
 			echo 'Css name(Used for styling):<input type="text" name="cssname" value="' . mysql_result($result, 0, "css_name") . '"><br />';
 			echo 'Filename of plugin:<input type="text" name="url" value="' . mysql_result($result, 0, "url") . '"><br />';
 			echo '<input type="hidden" name="id" value="' . $id . '">';
+			echo '<input type="submit" value="Go!" />';
 		echo "</form>";
 	}
-}
 ?>
 <div id="content-title">
 	<h1>Plugins</h1>
@@ -68,7 +70,7 @@
 			echo "<td>" . mysql_result($result, $i, "name") . "</td>";
 			echo "<td>" . mysql_result($result, $i, "css_name") . "</td>";
 			echo "<td>" . mysql_result($result, $i, "url") . "</td>";
-			echo "<td>" . '<a href="index.php?page=slides&delete=' . mysql_result($result, $i, "id") . '"><img src="cross.png" /></a>' . '<a href="index.php?page=slides&edit=' . mysql_result($result, $i, "id") . '"><img src="pencil.png" /></a>' . "</td>";
+			echo "<td>" . '<a href="index.php?page=plugins&delete=' . mysql_result($result, $i, "id") . '"><img src="cross.png" /></a>' . '<a href="index.php?page=plugins&edit=' . mysql_result($result, $i, "id") . '"><img src="pencil.png" /></a>' . "</td>";
 		echo "</tr>";
 	}
 ?>
@@ -76,8 +78,9 @@
 
 <h1>New slide</h1>
 <form name="input" action="index.php?page=plugins" method="post">
-	Plugin name:<input type="text" name="pluginname" value="' . mysql_result($result, 0, "name") . '"><br />
-	Css name(Used for styling):<input type="text" name="cssname" value="' . mysql_result($result, 0, "css_name") . '"><br />
-	Filename of plugin:<input type="text" name="url" value="' . mysql_result($result, 0, "url") . '"><br />
+	Plugin name:<input type="text" name="pluginname" value=""><br />
+	Css name(Used for styling):<input type="text" name="cssname" value=""><br />
+	Filename of plugin:<input type="text" name="url" value=""><br />
 	<input type="hidden" name="id" value="new">
+	<input type="submit" value="Go!" />
 </form>
