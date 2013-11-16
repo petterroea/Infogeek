@@ -1,5 +1,10 @@
 <?php
 	error_reporting(E_ALL);
+	if(!isset($_POST["license_accepted"])||$_POST["license_accepted"]!="yes")
+	{
+		echo '<font color="990000">You have to accept the licence agreement!<br /></font>';
+		die();
+	}
 	echo '<i><font color="009900">Preparing to install...<br /></font>';
 	$can_install=true;
 	$db_host=$_POST["db_host"];
