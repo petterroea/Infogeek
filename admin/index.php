@@ -5,10 +5,12 @@
 			
 		echo '</div>';
 		echo '<div id="menu">';
+			echo '<a href="index.php">Home</a>';
 			echo '<a href="index.php?page=slides">Edit slides</a> ';
-			echo ' <a href="index.php?page=users">Users</a> ';
-			echo ' <a href="index.php?page=plugins">Customisations and plugins</a> ';
-			echo ' <a href="index.php?page=settings">Settings</a>';
+			echo '<a href="index.php?page=users">Users</a> ';
+			echo '<a href="index.php?page=plugins">Customisations and plugins</a> ';
+			echo '<a href="index.php?page=settings">Settings</a>';
+			echo '<a href="index.php?page=editcss">Edit CSS</a>';
 		echo '</div>';
 	}
 	function includePage()
@@ -69,7 +71,9 @@
 			{
 				doHeader();
 				includePage();
-				echo '<div id="bottom"><center><i>Infogeek 1.0 - released under the MIT licence. Please see LICENCE.txt for more details, and third party lisences.<br />Uses elRTE for WYSIWYG text editing.</i><br /><i>Thanks and greetings to its contributors.</i></center></div>';
+				echo '<div id="bottom"><center><i>Infogeek 1.1 - released under the MIT licence. Please see LICENCE.txt for more details, and third party lisences.<br />Uses elRTE for WYSIWYG text editing.</i><br /><i>Thanks and greetings to its contributors.</i><br />';
+				//echo '<i>Running commit </i>'; //We cant know what commit we are doing.
+				echo '</center></div>';
 			}
 		?>
 	</body>
